@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+
+  spletni-streznik:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8000:80"
+    volumes:
+      - ./data/www:/var/www/html
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "superVarnoGeslo"
+      MYSQL_DATABASE: "rateit_db"
+      MYSQL_USER: "rateit_user"
+      MYSQL_PASSWORD: "rateit_pass"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8001:80"
+    environment:
+      PMA_HOST: "mysql"
+      PMA_PORT: "3306"
+    
+    depends_on:
+      - mysql
