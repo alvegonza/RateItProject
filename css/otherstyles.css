@@ -1,0 +1,47 @@
+/* data/www/css/styles.css */
+.warn {
+    color: red;
+}
+
+.sss {
+    min-height: calc(100vh - 150px);
+}
+
+.rounded-circle {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.logo {
+    width: 50px;
+    height: 75px;
+}
+
+.pfp {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.foto-derecha-container {
+    width: 300px;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid transparent;
+}
+
+.foto-derecha {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.img-icono-pequeno {
+    width: 16px;
+    height: 16px;
+}

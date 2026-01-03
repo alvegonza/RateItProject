@@ -1,0 +1,166 @@
+/* css/searchstyle.css */
+
+/* --- Contenedor Principal (Glassmorphism) --- */
+.glass-search-container {
+    background: rgba(255, 255, 255, 0.05); /* Fondo oscuro translúcido */
+    backdrop-filter: blur(16px);            /* Desenfoque del fondo */
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    border-radius: 20px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 900px; /* Un poco más ancho para que quepan bien los posters */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    margin-bottom: 2rem;
+}
+
+/* --- Barra de Búsqueda --- */
+.search-wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.custom-search-input {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white !important;
+    height: 60px;
+    font-size: 1.2rem;
+    padding-right: 60px; /* Espacio para el icono de lupa */
+    transition: all 0.3s ease;
+}
+
+.custom-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+}
+
+.custom-search-input:focus {
+    background: rgba(0, 0, 0, 0.5) !important;
+    border-color: #e50914; /* Rojo al enfocar */
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.3); /* Resplandor rojo */
+}
+
+/* Botón Lupa dentro del input */
+.search-btn-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    background: none;
+    border: none;
+    transition: color 0.3s;
+}
+
+.custom-search-input:focus + .search-btn-icon {
+    color: #e50914;
+}
+
+/* --- Tarjetas de Películas (Resultados) --- */
+.movie-card-link {
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.poster-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.poster-img {
+    width: 100%;
+    aspect-ratio: 2/3; /* Mantiene proporción de póster */
+    object-fit: cover;
+    display: block;
+}
+
+/* Efecto Hover en los resultados */
+.movie-card-link:hover .poster-wrapper {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.4); /* Resplandor rojo */
+    border-color: rgba(229, 9, 20, 0.6);
+}
+
+.film-title-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 10px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.movie-card-link:hover .film-title-text {
+    color: white;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+/* --- Botones --- */
+.btn-primary-gradient {
+    background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+    border: none;
+    color: white;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    padding: 12px 30px;
+}
+
+.btn-primary-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+    color: white;
+}
+
+.btn-outline-cancel {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.7);
+    transition: all 0.3s;
+}
+
+.btn-outline-cancel:hover {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border-color: white;
+}
+/* En css/searchstyle.css */
+
+.badge-add {
+    /* 1. Fondo Rojo Translúcido (La magia del cristal) */
+    background: rgba(229, 9, 20, 0.65); /* Rojo al 65% de opacidad */
+    
+    /* 2. Desenfoque de lo que hay detrás (Efecto esmerilado) */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Para Safari */
+    
+    /* 3. Bordes brillantes para simular el grosor del cristal */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.4); /* Brillo superior */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);    /* Sombra inferior sutil */
+    
+    /* 4. Estilos de texto y forma */
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 8px; /* Bordes redondeados suaves */
+    
+    /* 5. Sombra/Resplandor rojo */
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Para que se lea bien sobre el poster */
+    
+    /* Transición suave para el hover */
+    transition: all 0.3s ease;
+}
+
+/* Opcional: Efecto al pasar el ratón */
+.badge-add:hover {
+    background: rgba(229, 9, 20, 0.85); /* Se vuelve más sólido */
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.6); /* Brilla más */
+    transform: translateY(-2px); /* Flota un poco */
+    border-color: rgba(255, 255, 255, 0.6);
+}

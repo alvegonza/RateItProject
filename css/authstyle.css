@@ -1,0 +1,141 @@
+/* css/auth-style.css */
+
+:root {
+    --bg-black: #000000;
+    --accent-red-bright: #FF3131;
+    --accent-red-dark: #8A1919;
+    --text-muted: #554D4D;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: #fff;
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+/* --- Fondo Animado (Blobs) --- */
+.blob-container {
+    position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: -1;
+}
+
+.blob {
+    position: absolute; width: 400px; height: 400px; border-radius: 50%;
+    filter: blur(80px); animation: pulse 4s infinite ease-in-out;
+}
+
+.blob-1 { top: -10%; left: 20%; background-color: rgba(255, 49, 49, 0.15); }
+.blob-2 { bottom: -10%; right: 20%; background-color: rgba(138, 25, 25, 0.2); animation-delay: 1s; }
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+/* --- Glass Card (Contenedor Principal) --- */
+.glass-card {
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 420px; /* Ancho estándar para login/register */
+}
+
+/* --- Tipografía --- */
+.text-gradient-logo {
+    background: linear-gradient(to right, var(--accent-red-bright), var(--accent-red-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+/* --- Inputs --- */
+.form-label {
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-control-glass {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control-glass:focus {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    border-color: var(--accent-red-bright) !important;
+    box-shadow: 0 0 0 3px rgba(255, 49, 49, 0.2) !important;
+    outline: none;
+}
+
+.form-control-glass::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Iconos dentro de inputs --- */
+.input-group-text {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Botones --- */
+.btn-brand {
+    background: var(--accent-red-bright);
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(255, 49, 49, 0.3);
+}
+
+.btn-brand:hover {
+    background: #ff4d4d;
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(255, 49, 49, 0.5);
+    color: white;
+}
+
+/* --- Links --- */
+.link-accent {
+    color: var(--accent-red-bright);
+    text-decoration: none;
+    font-weight: 600;
+}
+.link-accent:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* --- Alertas --- */
+.alert-error {
+    background: rgba(138, 25, 25, 0.3);
+    border: 1px solid var(--accent-red-dark);
+    color: #ffcccc;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.alert-success-glass {
+    background: rgba(25, 135, 84, 0.3);
+    border: 1px solid #198754;
+    color: #d1e7dd;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    padding: 1rem;
+}

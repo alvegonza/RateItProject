@@ -1,0 +1,274 @@
+/* css/indexStyle.css */
+
+:root {
+    --brand-red: #FF3131;
+    --brand-dark-red: #8A1919;
+    --text-muted: #9CA3AF;
+    --bg-black: #000000;
+}
+
+/* Fondo general para asegurar continuidad con el header/footer */
+body {
+    background-color: var(--bg-black) !important;
+    overflow-x: hidden; /* Evita scroll horizontal por los blobs */
+}
+
+main {
+    position: relative;
+    background-color: var(--bg-black);
+    color: white;
+    padding-bottom: 50px;
+    overflow: hidden;
+    /* CAMBIO: Forzar que no haya espacio arriba */
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* --- BLOBS DE FONDO ANIMADOS --- */
+.blob-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: pulseBlob 6s infinite ease-in-out;
+}
+
+.blob-1 {
+    top: -100px;
+    left: 20%;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(255, 49, 49, 0.15);
+}
+
+.blob-2 {
+    bottom: 10%;
+    right: 10%;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(138, 25, 25, 0.2);
+    animation-delay: 2s;
+}
+
+@keyframes pulseBlob {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.1); opacity: 0.6; }
+}
+
+/* --- HERO SECTION (Imagen Pulp Fiction) --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    /* CAMBIO: Reducido de 85vh a 75vh para acercar la siguiente sección */
+    min-height: 75vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    padding-bottom: 1rem; /* Reducido espacio abajo */
+    z-index: 1;
+    /* CAMBIO: Margen negativo para eliminar línea blanca del header */
+    margin-top: -1px; 
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px; /* Limitamos el ancho para que no se deforme */
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6; /* Hacemos la imagen un poco sutil para que se lea el texto */
+    mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    z-index: -1;
+}
+
+/* Degradado encima de la imagen para legibilidad */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,1) 90%);
+    z-index: -1;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.text-gradient {
+    background: linear-gradient(to right, var(--brand-red), var(--brand-dark-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+/* --- BOTONES MODERNOS --- */
+.btn-modern-primary {
+    background: linear-gradient(135deg, var(--brand-red), var(--brand-dark-red));
+    color: white;
+    padding: 12px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(255, 49, 49, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-modern-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 49, 49, 0.5);
+    color: white;
+}
+
+.btn-modern-outline {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-modern-outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: white;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* --- FEATURES & CARDS (Glassmorphism) --- */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* CAMBIO: Padding superior reducido de 4rem a 1rem para subir las tarjetas */
+    padding: 1rem 20px 4rem 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 49, 49, 0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255, 49, 49, 0.2), rgba(138, 25, 25, 0.2));
+    color: var(--brand-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- SHOWCASE SECTION --- */
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 3rem;
+}
+
+.showcase-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.showcase-card:hover {
+    transform: scale(1.03);
+}
+
+.showcase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.showcase-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+}
+
+/* Media Queries para Responsive */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-bg-image { opacity: 0.4; }
+    .btn-modern-primary, .btn-modern-outline { width: 100%; justify-content: center; }
+}

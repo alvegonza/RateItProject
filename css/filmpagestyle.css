@@ -1,0 +1,132 @@
+/* css/filmpagestyle.css */
+
+/* --- Estilo Base de las Tarjetas (Glassmorphism) --- */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05); /* Muy transparente */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+/* --- Tipografía --- */
+.film-title {
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #fff;
+}
+
+.text-accent {
+    color: #e50914; /* Rojo marca */
+    font-weight: 600;
+}
+
+/* --- Poster de la Película --- */
+.poster-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.2); /* Resplandor rojo suave */
+    transition: transform 0.3s ease;
+}
+
+.poster-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);
+}
+
+.foto-derecha {
+    width: 100%;
+    display: block;
+}
+
+/* --- Reseñas --- */
+.review-item {
+    background: rgba(0, 0, 0, 0.3); /* Más oscuro que la tarjeta base */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: background 0.2s;
+}
+
+.review-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.resena-avatar {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* --- Estrellas --- */
+.stars-display {
+    color: #e50914; /* Rojo */
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+}
+
+.stars-small {
+    color: #ffc107; /* Amarillo */
+    font-size: 0.8rem;
+}
+
+/* --- Scrollbar personalizado para las reseñas --- */
+.reviews-scrollor {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.reviews-scrollor::-webkit-scrollbar {
+    width: 6px;
+}
+.reviews-scrollor::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.reviews-scrollor::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* --- Botón Principal --- */
+.btn-primary-gradient {
+    background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+    border: none;
+    color: white;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+    color: white;
+}
+
+/* --- NUEVOS ESTILOS AÑADIDOS --- */
+
+/* Estilo para el TÍTULO "SYNOPSIS" */
+.label-subtitle {
+    color: #ffffff !important;        /* Blanco puro */
+    text-transform: uppercase;        /* Mayúsculas */
+    letter-spacing: 3px;              /* Espaciado ancho estilo cine */
+    font-size: 0.85rem;               
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Sombra negra */
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Estilo para el "/5" blanco */
+.text-white-pure {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
